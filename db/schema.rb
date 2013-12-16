@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131216151000) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "fragments", force: true do |t|
     t.string   "key"
     t.string   "language"
@@ -41,14 +38,14 @@ ActiveRecord::Schema.define(version: 20131216151000) do
     t.string   "title"
     t.text     "description"
     t.string   "author"
-    t.text     "tags"
+    t.text     "tags",        limit: 255
     t.integer  "duration"
-    t.boolean  "deleted",     default: false
-    t.boolean  "local",       default: false
-    t.boolean  "remote",      default: true
+    t.boolean  "deleted",                 default: false
+    t.boolean  "local",                   default: false
+    t.boolean  "remote",                  default: true
     t.string   "host"
   end
 
-  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id"
 
 end
