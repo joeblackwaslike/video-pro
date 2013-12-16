@@ -1,0 +1,20 @@
+%h2 User Listing
+%p.text-info
+  = pluralize(@users.count, 'users')+' found.'
+%div{style: "height:300px;overflow:auto;"}
+  %table
+    - @users.each do |u|
+      %tr
+        %td{style: "vertical-align:top;font-weight:normal;"}
+          %h5
+            = link_to u.name, u
+          = u.email
+          %br/
+          = u.access_level
+        - if can_admin_users?
+          %td
+            = link_to 'Edit', edit_user_path(u)
+            | 
+            = link_to 'Remove', u, method: :delete, data: { confirm: 'Are you sure you want to remove this user? It cannot be undone.' }
+
+= link_to 'Add New User', new_user_path, class: 'btn btn-warning' if can_admin_users?

@@ -1,0 +1,7 @@
+%h1 Listing fragments
+= link_to 'New Fragment', new_fragment_path
+%br/
+
+.fragments
+  - @fragments.each do |fragment|
+    = render partial: 'fragment', object: fragment

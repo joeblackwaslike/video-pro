@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  email: joe@spektrumtheory.com
+  name: Joe Black
+  access_level: Admin
+  password_digest: <%= Bcrypt::Password.create('password') %>
+
+two:
+  email: myagi@myagimusic.com
+  name: Myagi
+  access_level: Trainer
+  password: <%= Bcrypt::Password.create('blah') %>

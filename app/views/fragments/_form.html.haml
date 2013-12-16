@@ -1,0 +1,15 @@
+= form_for @fragment do |f|
+  - if @fragment.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@fragment.errors.count, "error")} prohibited this fragment from being saved:"
+      %ul
+        - @fragment.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :language
+    = f.select :language, Fragment::TEMPLATE_LANGUAGES
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions
+    = f.submit 'Save'

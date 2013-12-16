@@ -1,0 +1,42 @@
+%h2 Video Detail
+%iframe{frameborder: "0", height: "503", scrolling: "auto", src: @video.embed_src, width: "894"}
+.meta_data.single_video{style: "float:left;width:48%;"}
+  %h4 Meta Data
+  %p
+    %strong Title:
+    = @video.title
+  %p
+    %strong Description:
+    %br/
+    = @video.description
+  %p
+    %strong Tags:
+    %br/
+    = @video.tags
+  %p
+    %strong Author:
+    %br/
+    = @video.author
+.extended_attributes.single_video{style: "float:left;width:48%;"}
+  %h4 Extended Properties
+  %p
+    %strong Key:
+    = @video.video_key
+  %p
+    %strong Duration:
+    = @video.duration
+%div{style: "clear:left;"}
+.urls.single_video
+  %h4 Important URL's
+  %h6 Thumbnails:
+  %p
+    - Video::THUMBNAIL_SIZES. each do |size|
+      = "For #{size}px in height: "+Video.get_thumb_url(@video.video_key, size)
+      %br/
+  %h6 Embed Code:
+  %p
+    = h '<script type="text/javascript src="'+@video.embed_src+'"></script>'
+  %h6 Preview Player URL:
+  %p
+    = h link_to @video.preview_src, @video.preview_src
+= link_to 'Edit', edit_video_path(@video)

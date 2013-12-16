@@ -1,0 +1,31 @@
+---
+attributes:
+  id: 1
+  key: 3bOzXKJ28Lt8Q57xTU9O8w
+  language: markdown
+  content: "#### Top Nav Bar\r\n\r\n*   Select Videos. You will next see a vieeo listing
+    page. From there you can get more details, edit, or delete videos.\r\n*   Select
+    Users. You will next see a user listing page. From there you can add new, edit,
+    or delete users.\r\n\r\n#### Uploading Videos\r\n\r\n*   Locate the first column
+    out of three towards the bottom of the page, called 'Upload Video'.\r\n*   Click
+    Choose File and when the file picker comes up, choose the video on your computer
+    you want to have uploaded. Size limit around approx ~500Mb currently.\r\n*   Click
+    the Upload button below the file picker and wait patiently, progress should be
+    reported regularly in the status bar of supported browsers. jquery to come soon
+    with full progress bars\r\n*   When the upload is complete, the video has been
+    sent to Bits on the run with your name as author. You will then be taken to a
+    screen to fill out the title, description, &amp; tags\r\n*   Click Submit when
+    done, you will be taken to the Detailed show page where lots of information will
+    be available about your video. Too much to cover here. If you need to re-edit
+    anything just click edit\r\n\r\n#### Browsing, viewing, and editing videos\r\n\r\n*
+    \  The 2nd of the three boxes at the bottom of your screen is called \"My Videos\",
+    under this box you can view all the files you've uploaded, or others have uploaded
+    and admins have edited to change the author to you.\r\n*   The Third of all the
+    three boxes at the bottom of the screen is called \"All Videos\". You can't edit
+    other users videos but you can view them, in case you want to see what other trainers
+    are working on.\r\n*   In both of these boxes, if the video is yours, you will
+    see an additional edit and delete box. Both of these actions will edit and delete
+    the video and reflect on both local and bitsontherun. Deletions are permanent
+    so please be careful."
+  created_at: 2013-12-16 12:47:04.147169000 Z
+  updated_at: 2013-12-16 12:47:04.147169000 Z

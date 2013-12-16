@@ -1,0 +1,14 @@
+= form_for(@new_video) do |f|
+  - if @new_video.errors.any?
+    #error_explanation.alert.alert-error
+      %h2
+        = pluralize(@new_video.errors.count, "error")
+        prohibited this video from being saved:
+      %ul
+        - @new_video.errors.full_messages.each do |msg|
+          %li
+            = msg
+  .field
+    = f.file_field :file, {:class => 'btn'}
+  .actions
+    = f.submit 'Upload', {:class => 'btn btn-warning'}

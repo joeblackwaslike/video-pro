@@ -1,0 +1,22 @@
+%h2 Video Listing
+%div{style: "height:300px;overflow:auto;"}
+  %table
+    - for v in @videos
+      %tr
+        %td
+          = image_tag v.thumb_src, html: {style: "width:109px:height:61px"}
+        %td{style: "vertical-align:top;font-weight:normal;"}
+          %h5
+            = truncate(v.title, length: 100)
+          - if v.author
+            %span.author
+              = 'By: '+v.author
+            %br/
+        - if @v = Video.find_by_video_key(v.video_key)
+          %td
+            = link_to 'Show', @v
+            - if can_admin_users? or is_own_video?(@v)
+              | 
+              = link_to 'Edit', edit_video_path(@v)
+              | 
+              = link_to 'Delete', @v, data: { confirm: 'Are you sure' }, method: :delete

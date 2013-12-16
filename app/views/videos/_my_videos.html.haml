@@ -1,0 +1,17 @@
+- unless (@my_videos.nil? || @my_videos.empty?)
+  %table
+    - for v in @my_videos
+      %tr
+        %td
+          = image_tag v.thumb_src, html: {style: "width:109px:height:61px"}
+        %td{style: "vertical-align:top;font-weight:normal;"}
+          %h5
+            = truncate(v.title, length: 20)
+          = 'By: '+v.author if v.author
+          %br/
+          = link_to 'Show', v
+          - if can_admin_users? or is_own_video?(v)
+            | 
+            #{link_to 'Edit', edit_video_path(v)} 
+            | 
+            #{link_to 'Delete', v, data: { confirm: 'Are you sure' }, method: :delete}

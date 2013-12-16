@@ -1,0 +1,12 @@
+.login-screen
+  = form_tag.form-signin do
+    %h2.form-signin-heading
+      Please sign in
+    = email_field_tag :email, params[:email], {class: 'input-block-level', placeholder: 'Email'}
+    %br/
+    = password_field_tag :password, params[:password], {class: 'input-block-level', placeholder: 'Password'}
+    %br/
+    %label.checkbox
+      %input{type: 'checkbox', value: 'remember-me'}
+      Remember me
+    = submit_tag 'Sign in', class: 'btn btn-large btn-primary'

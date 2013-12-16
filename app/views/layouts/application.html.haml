@@ -1,0 +1,76 @@
+!!!
+%html{lang: 'en'}
+  %head
+    %meta{charset: 'utf8'}
+    %title Video Pro
+    %meta{name: 'viewport', content: 'width=device-width, initial-scale=1.0'}
+    %meta{name: 'description', content: ''}
+    %meta{name: 'author', content: 'Joe Black <joeblackwaslike@me.com>'}
+    = csrf_meta_tags
+    = stylesheet_link_tag "application", "bootstrap", "bootstrap-responsive", media: "all", "data-turbolinks-track" => true
+    :css
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      form[action="/logout"] {
+        margin-bottom: 0;
+      }
+      /[if lt IE 9
+      %script{:src => 'http://html5shim.googlecode.com/svn/trunk/html5.js'}
+
+  %body
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          %button.btn.btn-navbar.collapsed{:type => 'button', 'data-toggle' => 'collapse', 'data-target' => '.nav-collapse' }
+            %span.icon-bar
+            %span.icon-bar
+          %a.brand{href: '/'} Video Pro
+          .nav-collapse.collapse
+          - if logged_in?
+            %ul.nav
+              = nav_item 'Videos', videos_path
+              = nav_item 'Users', users_path if can_admin_users?
+              = nav_item 'Fragments', fragments_path
+            .pull-right
+              = button_to 'Logout', {controller: 'sessions', action: 'destroy'}, {class: 'btn', method: 'delete'}
+          - if !logged_in?
+            = form_tag({controller: 'sessions', action: 'create'}, {class: 'navbar-form pull-right'}) do
+              = email_field_tag :email, params[:email], {class: 'span2', placeholder: 'Email'}
+              = password_field_tag :password, params[:password], {class: 'span2', placeholder: 'Password'}
+              = submit_tag 'Sign in', class: 'btn'
+    .container
+      .page-header
+        - if flash[:notice]
+          %p.alert.alert-info{id: 'notice'}
+            = flash[:notice]
+        - if flash[:error]
+          %p.alert.alert-error{id: 'error'}
+            = flash[:error]
+
+        = yield
+
+      - if logged_in?
+        .row
+          .span4
+            %h3 Upload Video
+            .upload_video.column
+              = render partial: 'videos/new_form'
+
+          .span4
+            %h3 My Videos
+            .videos_list.my
+              = render partial: 'videos/my_videos'
+
+          .span4
+            %h3 All Videos
+            .videos_list.all{id: 'all_videos_list'}
+              = render partial: 'videos/all_videos'
+
+        %hr
+        %footer
+          %p
+            &copy; Joe Black 2013
+        
+    = javascript_include_tag "application", "bootstrap", "data-turbolinks-track" => true

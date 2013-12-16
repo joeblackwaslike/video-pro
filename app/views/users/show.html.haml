@@ -1,0 +1,17 @@
+#notice.alert-info
+  = flash[:notice]
+%p
+  %strong Email:
+  = @user.email
+%p
+  %strong Name:
+  = @user.name
+%p
+  %strong Access level:
+  = @user.access_level
+%p
+  %strong Password:
+  = @user.password
+= link_to 'Edit', edit_user_path(@user)
+|
+= link_to 'Back', users_path
