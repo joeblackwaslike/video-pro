@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131216031644) do
+ActiveRecord::Schema.define(version: 20131216151000) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "fragments", force: true do |t|
     t.string   "key"
@@ -38,7 +41,7 @@ ActiveRecord::Schema.define(version: 20131216031644) do
     t.string   "title"
     t.text     "description"
     t.string   "author"
-    t.string   "tags"
+    t.text     "tags"
     t.integer  "duration"
     t.boolean  "deleted",     default: false
     t.boolean  "local",       default: false
@@ -46,6 +49,6 @@ ActiveRecord::Schema.define(version: 20131216031644) do
     t.string   "host"
   end
 
-  add_index "videos", ["user_id"], name: "index_videos_on_user_id"
+  add_index "videos", ["user_id"], name: "index_videos_on_user_id", using: :btree
 
 end
