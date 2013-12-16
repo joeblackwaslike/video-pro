@@ -1,4 +1,18 @@
-### Synopsis
+# VideoPro
+
+##Table of Contents**
+
+1. [Synopsis](#synopsis)
+
+2. [Hosted Demo](#hosted-demo)
+
+3. [Installation](#installation)
+
+4. [Deploy to Heroku](#deploy-to-heroku)
+
+5. [License](#license)
+
+## Synopsis
 
 A tool created in Ruby on Rails for the management of video assets, especially for 
 websites who have needs that can't be met by the or have outgrown the standard backend
@@ -11,26 +25,27 @@ static content) are compiled from markdown with support for adding any template 
 This should be more than enough for most needs and for those that need more, it's very 
 easy to extend upon by design.
 
-This project was developed with:
-* Ruby 2.0
-* Rails 4.0 (originally project was built in Rails 4.0.0beta)
-* SQLite 3
-* Sass, HAML, Twitter Bootstrap
-* Thin
-* Bits on the Run
-* Maruku, Redcloth, Rouge, Nokogiri
-* Heroku
+    This project was developed with:
+    * Ruby 2.0
+    * Rails 4.0 (originally project was built in Rails 4.0.0beta)
+    * SQLite 3
+    * Sass, HAML, Twitter Bootstrap
+    * Thin
+    * Bits on the Run
+    * Maruku, Redcloth, Rouge, Nokogiri
+    * Heroku
 
 
-## Hosting
-This project was launched and hosted on Heroku, where it remains to this day. This 
-application is heavily integrated with a video content host called Bits on the Run.
+## Hosted Demo
+This project was deployed to Heroku in less than 5 minutes following the directions below
+for Heroku.  The demo application for this live app is at: 
+    
+    [http://video-pro.herokuapp.com](http://video-pro.herokuapp.com)
 
-
-## Models
-1. Video
-2. User
-3. Fragment
+You will be prompted to login, use the following credentials:   
+    `Admin
+    email: admin@example.com
+    pass: demo`
 
 
 ## Installation
