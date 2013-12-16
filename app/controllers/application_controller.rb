@@ -23,7 +23,7 @@ class ApplicationController < ActionController::Base
 
   def set_video_defaults
     @all_videos = all_videos
-    @my_videos = User.find(session[:user_id]).videos if session[:user_id]
+    #@my_videos = User.find(session[:user_id]).videos if session[:user_id]
     @new_video = Video.new
   end
 
